@@ -1,7 +1,7 @@
 import React from 'react';
-import {Alert, Button, Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {colors} from './src/utils/theme';
-import {DEVICE_WITDH} from './src/utils/dimensions';
+import { Alert, Image, StyleSheet, Text, View } from 'react-native';
+import { colors } from './src/utils/theme';
+import { DEVICE_WITDH } from './src/utils/dimensions';
 import { DefaultButton } from './src/components';
 
 const showAlert = () => {
@@ -14,7 +14,7 @@ const App = () => {
       <Text style={styles.title}>Texto</Text>
       <Text>Subtitulo</Text>
       <Image
-        source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+        source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
         resizeMode="contain"
         style={styles.image}
       />
