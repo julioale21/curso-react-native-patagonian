@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, ViewStyle } from 'react-native';
 
 import styles, { buttonTextColors } from './styles';
+import { colors } from '../../utils/theme';
 interface Props {
   additionalStyle?: ViewStyle;
   onPress: () => void;
@@ -21,7 +22,11 @@ const DefaultButton = ({
     <TouchableOpacity
       style={[styles.mainContainer, styles[variant], additionalStyle]}
       onPress={onPress}>
-      <Text style={{ color: buttonTextColors[variant], fontSize: textSize }}>
+      <Text
+        style={{
+          color: buttonTextColors[variant] || colors.white,
+          fontSize: textSize,
+        }}>
         {text}
       </Text>
     </TouchableOpacity>
