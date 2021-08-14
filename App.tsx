@@ -1,14 +1,21 @@
-import React from 'react';
-import { Alert, Image, StyleSheet, Text, View } from 'react-native';
+/* eslint-disable react-native/no-inline-styles */
+import React, { useState } from 'react';
+import { Image, Modal, StyleSheet, Text, View } from 'react-native';
 import { colors } from './src/utils/theme';
 import { DEVICE_WITDH } from './src/utils/dimensions';
 import { DefaultButton } from './src/components';
 
-const showAlert = () => {
-  Alert.alert('Hola');
-};
-
 const App = () => {
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const showModal = () => {
+    setModalVisible(true);
+  };
+
+  const hideModal = () => {
+    setModalVisible(false);
+  };
+
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.title}>Texto</Text>
@@ -18,7 +25,40 @@ const App = () => {
         resizeMode="contain"
         style={styles.image}
       />
-      <DefaultButton text="Hola" onPress={showAlert} variant="primary" />
+      <DefaultButton
+        text="Mostrar Hola Mundo"
+        onPress={showModal}
+        variant="primary"
+      />
+
+      <Modal animationType="fade" transparent visible={isModalVisible}>
+        <View
+          style={{
+            alignItems: 'center',
+            backgroundColor: 'rgba(0,0,0,0.2)',
+            justifyContent: 'center',
+            flex: 1,
+            width: '100%',
+          }}>
+          <View
+            style={{
+              alignItems: 'center',
+              backgroundColor: colors.white,
+              borderRadius: 13,
+              justifyContent: 'center',
+              paddingBottom: 20,
+              paddingTop: 10,
+              width: '65%',
+            }}>
+            <Text style={{ marginVertical: 20 }}>Hola Mundo</Text>
+            <DefaultButton
+              text="Ok"
+              onPress={hideModal}
+              additionalStyle={{ height: 40 }}
+            />
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
