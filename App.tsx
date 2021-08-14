@@ -18,13 +18,7 @@ const App = () => {
         resizeMode="contain"
         style={styles.image}
       />
-      <DefaultButton
-        //additionalStyle={styles.button}
-        color={colors.mainOrange}
-        onPress={showAlert}
-        text="Hola"
-        textSize={24}
-      />
+      <DefaultButton onPress={showAlert} />
     </View>
   );
 };
@@ -47,10 +41,6 @@ const styles = StyleSheet.create({
   image: {
     minHeight: 100,
     width: DEVICE_WITDH * 0.5,
-  },
-  button: {
-    backgroundColor: 'green',
-    width: 50,
   },
 });
 
