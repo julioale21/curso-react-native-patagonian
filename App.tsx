@@ -18,10 +18,10 @@ const App = () => {
 
   return (
     <View style={styles.mainContainer}>
-      <Typography color={colors.mainOrange} size={30}>
+      <Typography color={colors.mainOrange} size={30} variant="bold">
         Texto
       </Typography>
-      <Typography>
+      <Typography variant="medium">
         <Text>Subtitulo</Text>
       </Typography>
       <Image

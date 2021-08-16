@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, ViewStyle } from 'react-native';
 
 import styles, { buttonTextColors } from './styles';
 import { colors } from '../../utils/theme';
+import Typography from '../Typography';
 interface Props {
   additionalStyle?: ViewStyle;
   onPress: () => void;
@@ -22,13 +23,12 @@ const DefaultButton = ({
     <TouchableOpacity
       style={[styles.mainContainer, styles[variant], additionalStyle]}
       onPress={onPress}>
-      <Text
-        style={{
-          color: buttonTextColors[variant] || colors.white,
-          fontSize: textSize,
-        }}>
+      <Typography
+        color={buttonTextColors[variant] || colors.white}
+        size={textSize}
+        variant="medium">
         {text}
-      </Text>
+      </Typography>
     </TouchableOpacity>
   );
 };
