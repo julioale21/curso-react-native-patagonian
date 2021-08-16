@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { colors } from './src/utils/theme';
 import { DEVICE_WITDH } from './src/utils/dimensions';
 import { DefaultButton, AlertModal } from './src/components';
+import Typography from './src/components/Typography';
 
 const App = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -17,8 +18,12 @@ const App = () => {
 
   return (
     <View style={styles.mainContainer}>
-      <Text style={styles.title}>Texto</Text>
-      <Text>Subtitulo</Text>
+      <Typography color={colors.mainOrange} size={30}>
+        Texto
+      </Typography>
+      <Typography>
+        <Text>Subtitulo</Text>
+      </Typography>
       <Image
         source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
         resizeMode="contain"
@@ -50,9 +55,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   title: {
-    color: colors.mainOrange,
-    fontSize: 30,
-    fontWeight: 'bold',
     marginBottom: 10,
   },
   image: {
