@@ -1,9 +1,8 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
-import { Image, Modal, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { colors } from './src/utils/theme';
 import { DEVICE_WITDH } from './src/utils/dimensions';
-import { DefaultButton } from './src/components';
+import { DefaultButton, AlertModal } from './src/components';
 
 const App = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -31,34 +30,12 @@ const App = () => {
         variant="primary"
       />
 
-      <Modal animationType="fade" transparent visible={isModalVisible}>
-        <View
-          style={{
-            alignItems: 'center',
-            backgroundColor: 'rgba(0,0,0,0.2)',
-            justifyContent: 'center',
-            flex: 1,
-            width: '100%',
-          }}>
-          <View
-            style={{
-              alignItems: 'center',
-              backgroundColor: colors.white,
-              borderRadius: 13,
-              justifyContent: 'center',
-              paddingBottom: 20,
-              paddingTop: 10,
-              width: '65%',
-            }}>
-            <Text style={{ marginVertical: 20 }}>Hola Mundo</Text>
-            <DefaultButton
-              text="Ok"
-              onPress={hideModal}
-              additionalStyle={{ height: 40 }}
-            />
-          </View>
-        </View>
-      </Modal>
+      <AlertModal
+        message="Hola Mundo 2"
+        onPressPrimaryButton={hideModal}
+        primaryButtonText="Ok"
+        visible={isModalVisible}
+      />
     </View>
   );
 };
