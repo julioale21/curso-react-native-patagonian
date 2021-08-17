@@ -10,8 +10,10 @@ import {
 } from 'react-native';
 import { colors } from './src/utils/theme';
 import { DEVICE_WITDH } from './src/utils/dimensions';
-import { DefaultButton, AlertModal } from './src/components';
+import { DefaultButton, AlertModal, Separator } from './src/components';
 import Typography from './src/components/Typography';
+
+const arr = Array.from({ length: 6 }, (_, index) => index);
 
 const App = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -40,42 +42,36 @@ const App = () => {
           <Typography variant="medium">
             <Text>Subtitulo</Text>
           </Typography>
-          <Image
-            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-            resizeMode="contain"
-            style={styles.image}
-          />
-          <Image
-            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-            resizeMode="contain"
-            style={styles.image}
-          />
-          <Image
-            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-            resizeMode="contain"
-            style={styles.image}
-          />
-          <Image
-            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-            resizeMode="contain"
-            style={styles.image}
-          />
-          <Image
-            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-            resizeMode="contain"
-            style={styles.image}
-          />
-          <Image
-            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-            resizeMode="contain"
-            style={styles.image}
-          />
+          <Separator size={10} />
+          {arr.map(item => (
+            <View key={`image-${item}`}>
+              <Image
+                resizeMode="contain"
+                source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+                style={styles.image}
+              />
+              <Separator size={10} />
+            </View>
+          ))}
+          <View style={styles.horizontalContainer}>
+            <Image
+              resizeMode="contain"
+              source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+              style={styles.image}
+            />
+            <Separator isHorizontal size={10} />
+            <Image
+              resizeMode="contain"
+              source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+              style={styles.image}
+            />
+          </View>
+          <Separator size={10} />
           <DefaultButton
             text="Mostrar Hola Mundo"
             onPress={showModal}
             variant="primary"
           />
-
           <AlertModal
             message="Hola Mundo 2"
             onPressPrimaryButton={hideModal}
@@ -89,6 +85,11 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  horizontalContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
+  },
   mainContainer: {
     alignItems: 'center',
     backgroundColor: colors.veryLightBlue,
@@ -101,8 +102,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   image: {
-    minHeight: 100,
-    width: DEVICE_WITDH * 0.5,
+    aspectRatio: 1,
+    minHeight: 50,
+    width: DEVICE_WITDH * 0.3,
   },
 });
 
