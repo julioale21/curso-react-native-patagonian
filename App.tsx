@@ -1,5 +1,13 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { colors } from './src/utils/theme';
 import { DEVICE_WITDH } from './src/utils/dimensions';
 import { DefaultButton, AlertModal } from './src/components';
@@ -17,31 +25,66 @@ const App = () => {
   };
 
   return (
-    <View style={styles.mainContainer}>
-      <Typography color={colors.mainOrange} size={30} variant="bold">
-        Texto
-      </Typography>
-      <Typography variant="medium">
-        <Text>Subtitulo</Text>
-      </Typography>
-      <Image
-        source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-        resizeMode="contain"
-        style={styles.image}
-      />
-      <DefaultButton
-        text="Mostrar Hola Mundo"
-        onPress={showModal}
-        variant="primary"
-      />
+    <>
+      <SafeAreaView style={{ backgroundColor: colors.veryLightBlue }} />
+      <ScrollView
+        style={{
+          backgroundColor: colors.veryLightBlue,
+          flex: 1,
+          width: '100%',
+        }}>
+        <View style={styles.mainContainer}>
+          <Typography color={colors.mainOrange} size={30} variant="bold">
+            Texto
+          </Typography>
+          <Typography variant="medium">
+            <Text>Subtitulo</Text>
+          </Typography>
+          <Image
+            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+            resizeMode="contain"
+            style={styles.image}
+          />
+          <Image
+            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+            resizeMode="contain"
+            style={styles.image}
+          />
+          <Image
+            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+            resizeMode="contain"
+            style={styles.image}
+          />
+          <Image
+            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+            resizeMode="contain"
+            style={styles.image}
+          />
+          <Image
+            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+            resizeMode="contain"
+            style={styles.image}
+          />
+          <Image
+            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+            resizeMode="contain"
+            style={styles.image}
+          />
+          <DefaultButton
+            text="Mostrar Hola Mundo"
+            onPress={showModal}
+            variant="primary"
+          />
 
-      <AlertModal
-        message="Hola Mundo 2"
-        onPressPrimaryButton={hideModal}
-        primaryButtonText="Ok"
-        visible={isModalVisible}
-      />
-    </View>
+          <AlertModal
+            message="Hola Mundo 2"
+            onPressPrimaryButton={hideModal}
+            primaryButtonText="Ok"
+            visible={isModalVisible}
+          />
+        </View>
+      </ScrollView>
+    </>
   );
 };
 
@@ -50,8 +93,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.veryLightBlue,
     flex: 1,
-    height: 100,
     justifyContent: 'center',
+    paddingBottom: 30,
     width: '100%',
   },
   title: {
