@@ -12,7 +12,11 @@ const WelcomeScreen = ({ navigation }) => {
         Welcome Screen
       </Typography>
       <Separator size={15} />
-      {/* <DefaultButton text="Go To Tabs" textSize={16} onPress={goToMainTabs} /> */}
+      <DefaultButton
+        text="Go To Tabs"
+        textSize={16}
+        onPress={() => navigation.navigate('TabNavigator')}
+      />
       <Separator size={10} />
       <DefaultButton
         text="Go To Experimental Screen"
