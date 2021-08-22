@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     alignItems: 'center',
-    backgroundColor: colors.veryLightBlue,
+    backgroundColor: colors.lightBlue,
     flex: 1,
     justifyContent: 'center',
     paddingBottom: 30,

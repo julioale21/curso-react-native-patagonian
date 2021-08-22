@@ -20,11 +20,11 @@ const ExperimentalScreen = () => {
 
   return (
     <>
-      <SafeAreaView style={{ backgroundColor: colors.veryLightBlue }} />
+      <SafeAreaView style={{ backgroundColor: colors.lightBlue }} />
       <ScrollView
         // eslint-disable-next-line react-native/no-inline-styles
         style={{
-          backgroundColor: colors.veryLightBlue,
+          backgroundColor: colors.lightBlue,
           flex: 1,
           width: '100%',
         }}>
